@@ -72,7 +72,7 @@ export default function OrthoMateDashboard() {
     mediaRecorder.onstop = async () => {
       const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
       const formData = new FormData();
-      formData.append("file", audioBlob);
+      formData.append("file", audioBlob, "audio.webm");
       formData.append("model", "whisper-1");
       const response = await fetch("https://api.openai.com/v1/audio/transcriptions", {
         method: "POST",
